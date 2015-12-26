@@ -1,0 +1,37 @@
+<ion-view view-title="Dashboard">
+    <ion-content class="padding">
+        <div class="list card">
+            <div class="item item-divider">Details</div>
+            <div class="list list-inset">
+                <div class="item">
+                    Device ID:
+                </div>
+                <div class="item">
+                    Device Status:
+                </div>
+                <div class="item">
+                    Router:
+                </div>
+            </div>
+        </div>
+        <div class="col col-center">
+            <button ng-click="announce()" class=" col button button-positive button-outline">
+                Announce
+            </button>
+            <br>
+            <button ng-click="connectToggle()" class="col button button-positive button-outline">
+                Connect/Reconnect
+            </button>
+            <br>
+            <div class=" item item-toggle">
+                Transmit
+                <label class="toggle toggle-positive">
+                    <input ng-model="transmit" ng-change="transmitToggle(transmit)" type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
