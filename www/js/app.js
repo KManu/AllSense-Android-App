@@ -23,50 +23,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 
     });
-})
-
-/*.config(function($stateProvider, $urlRouterProvider) {
-
-    // Ionic uses AngularUI Router which uses the concept of states
-    // Learn more here: https://github.com/angular-ui/ui-router
-    // Set up the various states which the app can be in.
-    // Each state's controller can be found in controllers.js
-    $stateProvider
-
-    // setup an abstract state for the tabs directive
-        .state('tab', {
-        url: '/tab',
-        abstract: true,
-        templateUrl: 'templates/tabs.html'
-    })
-
-    // Each tab has its own nav history stack:
-
-    .state('tab.dash', {
-        url: '/dash',
-        views: {
-            'tab-dash': {
-                templateUrl: 'templates/tab-dash.html',
-                controller: 'DashCtrl'
-            }
-        }
-    })
-
-    .state('tab.about', {
-        url: '/about',
-        views: {
-            'tab-about': {
-                templateUrl: 'templates/tab-about.html',
-                controller: 'AboutCtrl'
-            }
-        }
-    });
-
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/dash');
-
-})*/
-;
+});
 
 // When running in a Cordova environment, bootstrap
 // only after the device is ready. This makes it possible
@@ -74,12 +31,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 // checking there whether device is ready or not.
 (function() {
     if (window.cordova) {
-      console.log('Cordova found');
+        console.log('Cordova found');
         document.addEventListener("deviceready", function() {
             angular.bootstrap(document, ['starter']);
         }, false);
     } else {
-      console.log('No cordova');
+        console.log('No cordova');
         angular.element(document).ready(function() {
             angular.bootstrap(document, ['starter']);
         });

@@ -35,15 +35,15 @@
                         Manufacturer: {{device.manufacturer}}
                         <br> Model: {{device.model}}
                         <br> Platform: {{device.platform}}
+                        <br> Device UUID:{{device.uuid}}
                     </div>
                     <div class="item">
-                        Device UUID:{{device.uuid}}
+                        Device Status: <p>{{deviceStatus}}</p> 
                     </div>
                     <div class="item">
-                        Device Status:
-                    </div>
-                    <div class="item">
-                        Router:
+                        Bus info:
+                        <br>
+                        <p>{{busInfo}}</p>
                     </div>
                     <div class="item">
                         Debug Info:
@@ -54,12 +54,12 @@
                 </div>
             </div>
             <div class="col col-center">
-                <button ng-click="announce()" class=" col button button-positive button-outline">
-                    Announce
+                <button ng-click="connectToBus()" class=" col button button-positive button-outline">
+                    Connect to Bus
                 </button>
                 <br>
-                <button ng-click="connectToggle()" class="col button button-positive button-outline">
-                    Connect/Reconnect
+                <button ng-click="announce()" class=" col button button-positive button-outline">
+                    Announce
                 </button>
                 <br>
                 <div class=" item item-toggle">
