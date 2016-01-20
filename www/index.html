@@ -38,18 +38,13 @@
                         <br> Device UUID:{{device.uuid}}
                     </div>
                     <div class="item">
-                        Device Status: <p>{{deviceStatus}}</p> 
+                        Device Status:
+                        <p>{{deviceStatus}}</p>
                     </div>
                     <div class="item">
                         Bus info:
                         <br>
                         <p>{{busInfo}}</p>
-                    </div>
-                    <div class="item">
-                        Debug Info:
-                        <br>
-                        <p>{{bus}}</p>
-                        <br>
                     </div>
                 </div>
             </div>
@@ -58,10 +53,14 @@
                     Connect to Bus
                 </button>
                 <br>
-                <button ng-click="announce()" class=" col button button-positive button-outline">
-                    Announce
-                </button>
-                <br>
+                <div class="row row-center">
+                    <button ng-click="register()" class=" col button button-positive button-outline">
+                        Register
+                    </button>
+                    <button ng-click="announce()" class=" col button button-positive button-outline">
+                        Announce
+                    </button>
+                </div>
                 <div class=" item item-toggle">
                     Transmit
                     <label class="toggle toggle-positive">

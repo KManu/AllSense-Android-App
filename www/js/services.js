@@ -17,6 +17,7 @@ var broadcastOnRootScope = function() {
 angular.module('starter.services', [])
 
 .factory('AllJoynService', function($q) {
+    var device = JSON.parse(window.localStorage['device'] || {});
     //set port and name
     var name = 'Sensor ' + device.uuid || {};
     var port = JSON.parse(window.localStorage['curPort'] || '{}');
@@ -67,7 +68,7 @@ angular.module('starter.services', [])
         console.log('Hello from register');
         //Define objects
         var appObjects = [{
-            path: 'com/manu/appObject',
+            path: '/AllSense',
             interfaces: [
                 AboutInterface,
                 NotificationInterface,
@@ -102,7 +103,7 @@ angular.module('starter.services', [])
         var aboutParameters = [
             1, //q Version number of the About interface.
             port, //q Session port the app will listen on incoming sessions.
-            ['com/manu/appObject', ['AboutInterface', 'NotificationInterface']], //a(oas) Array of object paths and the list of supported interfaces provided by each object.
+            ['/AllSense', ['AboutInterface', 'NotificationInterface']], //a(oas) Array of object paths and the list of supported interfaces provided by each object.
             [
                 ['AppId', window.localStorage['appUUID']],
                 ['DefaultLanguage', 'en'],
@@ -113,6 +114,8 @@ angular.module('starter.services', [])
                 ['ModelNumber', device.serial]
             ] //a{sv} All the fields listed in About data interface fields with a yes value in the Announced column are provided in this signal.
         ];
+
+        console.log(aboutParameters);
 
         //Sending about signal
         console.log('Bef');
@@ -125,10 +128,12 @@ angular.module('starter.services', [])
             //failure callback
             console.log('signal sending failed');
             deferred.reject();
+            angular.element(document.body).scope().$apply();
         }, aboutIndexList, aboutInParameterType, aboutParameters);
         console.log('Aft');
         return deferred.promise;
     };
+
 
     function busConnect() {
 
