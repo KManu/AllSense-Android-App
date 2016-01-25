@@ -99,21 +99,48 @@ angular.module('starter.services', [])
         console.log('Inside About announcement');
         console.log(curBus);
         var aboutIndexList = [1, 0, 0, 1];
-        var aboutInParameterType = 'qqaa(oas)a{sv}';
+        var aboutInParameterType = 'qqa(oas)a{sv}';
+        var AppId = [
+            'b2549b67',
+            '4e96',
+            '4aca',
+            'b7de',
+            'aacda220b3e8'
+        ];
+
+
+
         var aboutParameters = [
             1, //q Version number of the About interface.
             port, //q Session port the app will listen on incoming sessions.
             ['/AllSense', ['AboutInterface', 'NotificationInterface']], //a(oas) Array of object paths and the list of supported interfaces provided by each object.
-            [
-                ['AppId', window.localStorage['appUUID']],
-                ['DefaultLanguage', 'en'],
-                ['DeviceName', device.model],
-                ['DeviceId', device.uuid],
-                ['AppName', 'AllSense'],
-                ['Manufacturer', device.manufacturer],
-                ['ModelNumber', device.serial]
+            [{
+                    'AppId': AppId
+                }, {
+                    'DefaultLanguage': 'en'
+                }, {
+                    'DeviceName': device.model
+                }, {
+                    'DeviceId': device.uuid
+                }, {
+                    'AppName': 'AllSense'
+                }, {
+                    'Manufacturer': device.manufacturer
+                }, {
+                    'ModelNumber': device.serial
+                }, {
+                    'SupportedLanguages': ['en']
+                }, {
+                    'Description': 'AllJoyn android app developed by Kwabena Manu using the Alljoyn Cordova plugin'
+                }, {
+                    'SoftwareVersion': '0.1'
+                }, {
+                    'AJSoftwareVersion': '14.12'
+                }
+
             ] //a{sv} All the fields listed in About data interface fields with a yes value in the Announced column are provided in this signal.
         ];
+
 
         console.log(aboutParameters);
 
